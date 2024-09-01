@@ -12,6 +12,7 @@ public class ExceptionsController {
 
 	@ExceptionHandler(NaoAcheiException.class)
 	public ResponseEntity<?> naoAchei(NaoAcheiException e) {
+		System.out.println("------------------------");
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
 	}
 }

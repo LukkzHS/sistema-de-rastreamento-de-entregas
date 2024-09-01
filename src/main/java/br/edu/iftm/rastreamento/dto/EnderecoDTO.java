@@ -11,8 +11,4 @@ public class EnderecoDTO {
 	private String estado;
 	private String cep;
 
-	public String enderecoCompleto() {
-		return rua + ", " + numero + ", " + cidade + " - " + estado + " - " + cep;
-	}
-
 }

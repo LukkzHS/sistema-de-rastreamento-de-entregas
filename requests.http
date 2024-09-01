@@ -1,5 +1,26 @@
+# Endereco
+#--------------------------------------------------------
+
+###
+GET /enderecos/11
+Host: localhost:8080
+
+###
+POST /enderecos
+Host: localhost:8080
+Content-Type: application/json
+
+{
+	"rua": "Rua das Requisições",
+	"numero": 123,
+	"cidade": "Uberlândia",
+	"estado": "MG",
+	"cep": "12345-678"
+}
+
 # Pacote
 #---------------------------
+
 
 ###
 GET /pacotes
@@ -12,63 +33,43 @@ Content-Type: application/json
 
 {
 		"idUnico": "ABCD1234567",
-		"destinatario": "Hermenegildo Silva",
+		"destinatario": "Lucca Henrique",
 		"endereco": {
-			"id":2
+			"id":1
 		},
 		"status": "pendente"
 }
 
 ###
-GET /pacotes/2
+GET /pacotes/1
 Host: localhost:8080
 
 
 ###
-PUT /pacotes/2
+PUT /pacotes/1
 Host: localhost:8080
 Content-Type: application/json
 
 {
 	"status": "em trânsito"
-}	 
-
-###
-PUT /pacotes/2
-Host: localhost:8080
-Content-Type: application/json
-
-{
-	"status": "teste"
-}	 
-
-###
-DELETE /pacotes/2
-Host: localhost:8080
-
+}
 
 # Rastreamento
 #----------------------------------------------------
 ###
-GET /rastreamentos/2
+GET /rastreamentos/1
 Host: localhost:8080
 
 
-# Endereco
-#--------------------------------------------------------
+# DELETAR PACOTE
+#----------------------------------------------------
 ###
-GET /enderecos/11
+DELETE /pacotes/1
 Host: localhost:8080
 
-###
-POST /enderecos
-Host: localhost:8080
-Content-Type: application/json
 
-{
-	"rua": "Rua das Flores",
-	"numero": 123,
-	"cidade": "São Paulo",
-	"estado": "SP",
-	"cep": "12345-678"
-}
+
+
+
+
+

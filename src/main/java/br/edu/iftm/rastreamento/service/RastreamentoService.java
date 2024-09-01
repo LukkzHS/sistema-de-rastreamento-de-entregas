@@ -10,7 +10,7 @@ import br.edu.iftm.rastreamento.model.Rastreamento;
 
 @Service
 public class RastreamentoService {
-
+    
     @Autowired
     private PacoteService pacoteService;
 

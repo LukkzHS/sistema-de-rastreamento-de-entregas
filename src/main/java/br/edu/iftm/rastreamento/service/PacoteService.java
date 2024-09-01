@@ -40,8 +40,8 @@ public class PacoteService {
     public Pacote updatePacote(Long id, Pacote pacoteDetails) {
         Pacote pacote = pacoteRepository.findById(id).get();
         pacote.setId(id);
-        pacote.atualizarStatus(pacoteDetails.getStatus(), Date.from(Instant.now()), "não implementado");
-        //obter o ultimo rastreamento
+        pacote.atualizarStatus(pacoteDetails.getStatus(), Date.from(Instant.now()), "sem localização");
+        
         Rastreamento ultiRastreamento = pacote.getRastreamentos().get(pacote.getRastreamentos().size() - 1);
         rastreamentoRepository.save(ultiRastreamento);
         return pacoteRepository.save(pacote);
@@ -51,4 +51,25 @@ public class PacoteService {
         Pacote pacote = pacoteRepository.findById(id).get();
         pacoteRepository.delete(pacote);
     }
+
+    public List<Pacote> getPacotePorStatus(String status) {
+
+        Iterable<Pacote> pacotesStatusIterable = pacoteRepository.findPacotesPorStatus(status);
+
+        List<Pacote> pacotesStatusList = new ArrayList<>();
+        pacotesStatusIterable.forEach(pacotesStatusList::add);
+
+        return pacotesStatusList;
+    }
+
+    public List<Pacote> getPacotePorDestinatario(String destinatario) {
+
+        Iterable<Pacote> pacotesDestinatarioIterable = pacoteRepository.findPacotesPorDestinatario(destinatario);
+
+        List<Pacote> pacotesDestinatarioList = new ArrayList<>();
+        pacotesDestinatarioIterable.forEach(pacotesDestinatarioList::add);
+
+        return pacotesDestinatarioList;
+    }
+
 }

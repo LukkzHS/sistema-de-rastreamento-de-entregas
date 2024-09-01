@@ -21,7 +21,7 @@ public class EnderecoService {
 		Iterable<Endereco> enderecosIterable = enderecoRepository.findAll();
 		List<EnderecoDTO> enderecosList = new ArrayList<>();
 		enderecosIterable.forEach((endereco) ->
-		// converter entity para dto
+		
 		{
 			EnderecoDTO enderecoDTO = new EnderecoDTO();
 			enderecoDTO.setId(endereco.getId());
@@ -32,7 +32,7 @@ public class EnderecoService {
 			enderecoDTO.setCep(endereco.getCep());
 			enderecosList.add(enderecoDTO);
 		}
-		// adicionar dto na lista
+		
 		);
 		return enderecosList;
 	}
@@ -41,7 +41,7 @@ public class EnderecoService {
 		Endereco endereco = enderecoRepository.findById(id).orElseThrow(
 				() -> new NaoAcheiException("Endereco não encontrado"));
 		endereco = enderecoRepository.save(endereco);
-		// converter entity para dto
+		
 		EnderecoDTO enderecoDTO = new EnderecoDTO();
 		enderecoDTO.setId(endereco.getId());
 		enderecoDTO.setRua(endereco.getRua());
@@ -53,7 +53,7 @@ public class EnderecoService {
 	}
 
 	public EnderecoDTO createEndereco(EnderecoDTO enderecoDTO) {
-		// converter dto para entity
+		
 		Endereco endereco = new Endereco();
 		endereco.setRua(enderecoDTO.getRua());
 		endereco.setNumero(enderecoDTO.getNumero());
@@ -62,7 +62,7 @@ public class EnderecoService {
 		endereco.setCep(enderecoDTO.getCep());
 
 		endereco = enderecoRepository.save(endereco);
-		// converter entity para dto
+		
 		EnderecoDTO enderecoDTOCreated = new EnderecoDTO();
 		enderecoDTOCreated.setId(endereco.getId());
 		enderecoDTOCreated.setRua(endereco.getRua());
